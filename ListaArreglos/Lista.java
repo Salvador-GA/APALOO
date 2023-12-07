@@ -236,12 +236,16 @@ public class Lista {
      * Devuelve los datos de la lista en un string
      */
     public String toString() {
-        String datos = "[";
-        for (int i = 0; i < longitud - 1; i++) {
-            datos += lista[i] + ", ";
+        if (!esVacia()){
+            String datos = "[";
+            for (int i = 0; i < longitud - 1; i++) {
+                datos += lista[i] + ", ";
+            }
+            datos += lista[longitud - 1] + "]";
+            return datos;
+        } else {
+            return "[]";
         }
-        datos += lista[longitud - 1] + "]";
-        return datos;
     }
 
 }
