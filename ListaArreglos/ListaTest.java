@@ -6,6 +6,9 @@ import org.junit.Test;
 
 /**
  * Clase que realiza pruebas a la clase Lista con el paquete JUnit
+ * 
+ * @author Salvador Gonzalez Arellano
+ * @version 1.0
  */
 public class ListaTest {
 
