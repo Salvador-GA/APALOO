@@ -171,10 +171,10 @@ public class Lista {
             } else if (posicion == longitud - 1) {
                 return eliminarFinal();
             } else {
-                for (int i = posicion; i < longitud /*- 1*/; i++) {
+                for (int i = posicion; i < longitud - 1; i++) {
                     lista[i] = lista[i + 1];
                 }
-                //lista[longitud - 1] = null;
+                lista[longitud - 1] = null;
                 longitud--;
                 return true;
             }
