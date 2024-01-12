@@ -1,0 +1,1 @@
+Ejemplo de una pila implementada con memoria dinámica
