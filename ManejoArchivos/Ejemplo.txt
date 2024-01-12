@@ -1,0 +1,6 @@
+Este es un
+archivo de ejemplo
+para practicar
+la apertura, lectura
+y escritura de archivos
+en Java.
