@@ -1,0 +1,1 @@
+Ejemplos de algoritmos que utilizan la técnica divide y venceras
