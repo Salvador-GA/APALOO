@@ -1,0 +1,1 @@
+En este ejemplo se muestra el uso de las excepciones en Java
