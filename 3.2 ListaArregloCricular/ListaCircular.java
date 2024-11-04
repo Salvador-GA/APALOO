@@ -1,12 +1,34 @@
+package ListaArregloCricular;
+
 /**
  * Clase ListaCircular, implementada con arrelgo de String y aritmetica modular
  * 
  * @author Salvador Gonzalez Arellano
- * @version 1.0
+ * @version 1.1
  */
 public class ListaCircular {
+    
+    /**
+     * El arreglo que contiene los elementos de la lista circular.
+     */
     private String[] lista;
-    private int inicio, fin, N;
+    
+    /**
+     * Índice de inicio de la lista circular. Representa la posición
+     * en la que se encuentra el primer elemento.
+     */
+    private int inicio;
+    
+    /**
+     * Índice de fin de la lista circular. Representa la posición
+     * en la que se insertará el siguiente elemento disponible.
+     */
+    private int fin;
+    
+    /**
+     * Tamaño máximo de la lista circular.
+     */
+    private int N;
 
     /**
      * Constructor que inicializa la lista con la cantidad maxima de datos
@@ -28,7 +50,7 @@ public class ListaCircular {
      */
     public ListaCircular() {
         lista = new String[10];
-        this.N = 10;
+        N = 10;
         inicio = -1;
         fin = -1;
     }
