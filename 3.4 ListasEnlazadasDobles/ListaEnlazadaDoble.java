@@ -3,7 +3,7 @@
  * objetos tipo Nodo
  * 
  * @author Salvador Gonzalez Arellano
- * @version 1.0
+ * @version 1.1
  */
 public class ListaEnlazadaDoble {
     private Nodo inicio;
@@ -47,6 +47,8 @@ public class ListaEnlazadaDoble {
         Nodo nuevo = new Nodo(dato, inicio, null);
         if (esVacia()) {
             fin = nuevo;
+        } else {
+            inicio.setAnterior(nuevo);
         }
         inicio = nuevo;
         longitud++;
