@@ -1,3 +1,5 @@
+package AlgoritmosDeOrdenamientoyBusqueda;
+
 /**
  * Clase AlgoritmosOrdenamiento, implementa los algoritmos de ordenamiento:
  * burbuja
@@ -7,7 +9,7 @@
  * conteo
  * 
  * @author Salvador Gonzalez Arellano
- * @version 1.0
+ * @version 2.0
  */
 public class AlgoritmosOrdenamiento {
 
@@ -17,12 +19,13 @@ public class AlgoritmosOrdenamiento {
      * @param arreglo a ser ordenado
      */
     public static void burbuja(int[] arreglo) {
-        for (int i = 0; i < arreglo.length - 1; i++) {
-            for (int j = i + 1; j < arreglo.length; j++) {
-                if (arreglo[i] > arreglo[j]) {
-                    int aux = arreglo[i];
-                    arreglo[i] = arreglo[j];
-                    arreglo[j] = aux;
+        for (int i = 0; i < arreglo.length - 1; i++) { // Número de pasadas
+            for (int j = 0; j < arreglo.length - 1 - i; j++) { // Comparaciones en cada pasada
+                if (arreglo[j] > arreglo[j + 1]) {
+                    // Intercambiar
+                    int aux = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = aux;
                 }
             }
         }
@@ -34,15 +37,17 @@ public class AlgoritmosOrdenamiento {
      * @param arreglo a ser ordenado
      */
     public static void burbuja2(int[] arreglo) {
-        boolean intercambio = true;
-        for (int i = 0; i < arreglo.length - 1 && intercambio; i++) {
-            intercambio = false;
-            for (int j = i + 1; j < arreglo.length; j++) {
-                if (arreglo[i] > arreglo[j]) {
-                    int aux = arreglo[i];
-                    arreglo[i] = arreglo[j];
-                    arreglo[j] = aux;
-                    intercambio = true;
+        boolean intercambiado = true; // Bandera para detectar intercambios
+
+        for (int i = 0; i < arreglo.length - 1 && intercambiado; i++) {
+            intercambiado = false; // Reiniciar bandera al inicio de cada pasada
+            for (int j = 0; j < arreglo.length - 1 - i; j++) {
+                if (arreglo[j] > arreglo[j + 1]) {
+                    // Intercambiar
+                    int aux = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = aux;
+                    intercambiado = true; // Se realizó al menos un intercambio
                 }
             }
         }
