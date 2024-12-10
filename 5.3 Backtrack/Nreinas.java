@@ -1,5 +1,3 @@
-package Backtrack;
-
 /**
  * Clase Nreinas, resuelve el problema de colocar N reinas sin que se ataquen en
  * un tablero de NxN
