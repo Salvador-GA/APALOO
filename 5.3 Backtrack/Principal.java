@@ -1,3 +1,5 @@
+package Backtrack;
+
 /**
  * Clase Principal, crea objetos de las clases RecorridoCAballo y Nreinas para
  * verificar su correcto funcionamiento
@@ -9,7 +11,7 @@ public class Principal {
     public static void main(String[] args) {
         System.out.println("Recorrido del caballo");
         try {
-            RecorridoCaballo caballo = new RecorridoCaballo(1, 1);
+            RecorridoCaballo caballo = new RecorridoCaballo(0, 0,8);
             if (caballo.resolverProblema()) {
                 caballo.escribirTablero();
             } else {
@@ -21,7 +23,7 @@ public class Principal {
         System.out.println("\nProblema de las N reinas");
         try {
             Nreinas reinas = new Nreinas(8);
-            reinas.resolverNReinas(0);
+            reinas.resolverNReinas();
             if (reinas.getSolucionEncontrada()) {
                 System.out.println("Número de soluciones encontradas: " + reinas.getContadorSoluciones());
             } else {

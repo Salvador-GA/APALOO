@@ -1,9 +1,11 @@
+package Backtrack;
+
 /**
  * Clase Nreinas, resuelve el problema de colocar N reinas sin que se ataquen en
  * un tablero de NxN
  * 
  * @author Salvador Gonzalez Arellano
- * @version 1.0
+ * @version 2.0
  */
 public class Nreinas {
     private int N;
@@ -19,7 +21,24 @@ public class Nreinas {
      * @throws Exception N debe ser positivo
      */
     public Nreinas(int N) throws Exception {
-        if (N > 1) {
+        if (N > 0) {
+            this.N = N;
+            tablero = new int[N][N];
+            contadorSoluciones = 0;
+            solucionEncontrada = false;
+        } else {
+            throw new Exception("N debe ser positivo");
+        }
+    }
+
+    /**
+     * Actualiza el valor de N e inicializa el resto de atributos de nuevo
+     * 
+     * @param N
+     * @throws Exception
+     */
+    public void setN(int N) throws Exception {
+        if (N > 0) {
             this.N = N;
             tablero = new int[N][N];
             contadorSoluciones = 0;
@@ -44,13 +63,13 @@ public class Nreinas {
             }
         }
         // Verificar la diagonal superior izquierda
-        for (int i = fila, j = columna; i >= 0 && j >= 0; i--, j--) {
+        for (int i = fila-1, j = columna-1; i >= 0 && j >= 0; i--, j--) {
             if (tablero[i][j] != 0) {
                 return false;
             }
         }
         // Verificar la diagonal inferior izquierda
-        for (int i = fila, j = columna; i < N && j >= 0; i++, j--) {
+        for (int i = fila+1, j = columna-1; i < N && j >= 0; i++, j--) {
             if (tablero[i][j] != 0) {
                 return false;
             }
@@ -59,12 +78,12 @@ public class Nreinas {
     }
 
     /**
-     * Metodo recursiva que encuentra todas las posibles soluciones de un
+     * Metodo recursivo que encuentra todas las posibles soluciones de un
      * tablero e imprime la primera que encuentra
      * 
      * @param columna donde se intenta colocar la reina actualmente
      **/
-    public void resolverNReinas(int columna) {
+    private void resolverNReinas(int columna) {
         if (columna == N) {
             // Se ha encontrado una solución
             contadorSoluciones++;
@@ -87,6 +106,16 @@ public class Nreinas {
                 }
             }
         }
+    }
+
+    /**
+     * Metodo publico para que en las clases externas no tengan que indicar siempre
+     * en que columna comenzar a resolver el problema (que siempre es 0), este
+     * metodo llama al metodo recursivo con la columna 0 que realmente resuelve el
+     * problema
+     */
+    public void resolverNReinas() {
+        resolverNReinas(0);
     }
 
     /**

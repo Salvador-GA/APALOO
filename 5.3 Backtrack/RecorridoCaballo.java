@@ -1,14 +1,15 @@
+package Backtrack;
+
 /**
  * Clase RecorridoCaballo, resuelve el problema del recorrido del caballo para
  * un tablero de NxN a partir de la posicion indicada en el constructor
  * 
  * @author Salvador Gonzalez Arellano
- * @version 1.0
+ * @version 1.1
  */
 public class RecorridoCaballo {
-    static final int N = 8;
-    static final int n = (N + 1);
-    private int[][] tablero = new int[n][n];
+    private int N;
+    private int[][] tablero;
     private boolean exito;
     private int[][] SALTO = { { 2, 1 }, { 1, 2 }, { -1, 2 }, { -2, 1 },
                               { -2, -1 }, { -1, -2 }, { 1, -2 }, { 2, -1 } };
@@ -22,14 +23,16 @@ public class RecorridoCaballo {
      * @param y coordenada inicial y
      * @throws Exception Coordenadas fuera de rango
      */
-    public RecorridoCaballo(int x, int y) throws Exception { // constructor
-        if ((x < 1) || (x > N) || (y < 1) || (y > N)) {
+    public RecorridoCaballo(int x, int y, int N) throws Exception { // constructor
+        this.N=N;
+        tablero = new int[N][N];
+        if ((x < 0) || (x >= N) || (y < 0) || (y >= N)) {
             throw new Exception("Coordenadas fuera de rango");
         }
         x0 = x;
         y0 = y;
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= N; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 tablero[i][j] = 0;
             }
         }
@@ -64,7 +67,7 @@ public class RecorridoCaballo {
             ny = y + SALTO[k][1]; // primer movimiento posible
             k++;
             // determina si nuevas coordenadas son aceptables
-            if ((nx >= 1) && (nx <= N) && (ny >= 1) && (ny <= N) && (tablero[nx][ny] == 0)) {
+            if ((nx >= 0) && (nx < N) && (ny >= 0) && (ny < N) && (tablero[nx][ny] == 0)) {
                 tablero[nx][ny] = movimiento; // anota movimiento
                 if (movimiento < N * N) {
                     saltoCaballo(nx, ny, movimiento + 1);
@@ -82,8 +85,8 @@ public class RecorridoCaballo {
      * imprime en pantalla los saltos del caballo
      */
     public void escribirTablero() {
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= N; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 if (tablero[i][j] < 10) {
                     System.out.print("0" + tablero[i][j] + " ");
                 } else {
