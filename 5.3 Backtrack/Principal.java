@@ -1,5 +1,3 @@
-package Backtrack;
-
 /**
  * Clase Principal, crea objetos de las clases RecorridoCAballo y Nreinas para
  * verificar su correcto funcionamiento
