@@ -1,5 +1,3 @@
-package Backtrack;
-
 /**
  * Clase RecorridoCaballo, resuelve el problema del recorrido del caballo para
  * un tablero de NxN a partir de la posicion indicada en el constructor
