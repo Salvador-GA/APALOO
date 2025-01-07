@@ -1,5 +1,3 @@
-package Backtrack;
-
 /**
  * Clase Principal, hace uso de las clases RecorridoCAballo, Nreinas y Sudoku
  * para verificar su correcto funcionamiento
