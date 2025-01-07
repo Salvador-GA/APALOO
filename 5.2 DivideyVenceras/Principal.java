@@ -1,5 +1,3 @@
-package DivideyVenceras;
-
 import java.util.Random;
 
 /**
