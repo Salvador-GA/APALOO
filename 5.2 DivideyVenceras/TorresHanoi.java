@@ -1,5 +1,3 @@
-package DivideyVenceras;
-
 /**
  * @class TorresHanoi
  * @brief Clase que proporciona una solución recursiva para el problema de las
