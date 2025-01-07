@@ -1,5 +1,3 @@
-package Backtrack;
-
 /**
  * @class Sudoku
  * @brief Clase que implementa la lógica para resolver tableros de Sudoku.
