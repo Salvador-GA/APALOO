@@ -50,7 +50,7 @@ public class Programador extends Empleado {
      * @return Cadena con la información del programador.
      */
     @Override
-    public String mostrarInformacion() {
-        return super.mostrarInformacion() + ", Lenguaje de Programación: " + lenguaje;
+    public String toString() {
+        return super.toString() + ", Lenguaje de Programación: " + lenguaje;
     }
 }
