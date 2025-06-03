@@ -12,6 +12,6 @@ public class Principal {
         Programador programador = new Programador("Alice", 28, 20000, "Java");
 
         // Mostrar información del programador
-        System.out.println(programador.mostrarInformacion());
+        System.out.println(programador.toString());
     }
 }
