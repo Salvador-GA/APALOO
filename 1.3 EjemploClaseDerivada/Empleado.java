@@ -86,7 +86,7 @@ public class Empleado {
      * 
      * @return Cadena con la información del empleado.
      */
-    public String mostrarInformacion() {
+    public String toString() {
         return "Nombre: " + nombre + ", Edad: " + edad + ", Salario: " + salario;
     }
 }
