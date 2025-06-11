@@ -1,0 +1,1 @@
+En este ejemplo se muestra La forma de crear sus propias excepciones heredando de la clase Exception de Java
