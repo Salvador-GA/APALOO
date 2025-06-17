@@ -5,8 +5,6 @@
  * @version 1.0
  */
 
-package UsoEqualsCompare;
-
 /**
  * Clase derivada Programador que extiende la clase Empleado, agregando la
  * especialización.
