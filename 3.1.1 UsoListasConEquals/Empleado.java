@@ -5,8 +5,6 @@
  * @version 1.0
  */
 
-package UsoEqualsCompare;
-
 /**
  * Clase base Empleado que contiene los atributos y métodos comunes a todos los
  * empleados.
