@@ -1,5 +1,3 @@
-package ListaArreglos;
-
 /**
  * Clase Lista, implementada con arrelgo de String
  * 
