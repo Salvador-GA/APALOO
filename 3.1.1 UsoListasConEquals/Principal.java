@@ -1,5 +1,3 @@
-package UsoEqualsCompare;
-
 /**
  * Clase Principal, utiliza los metodos de una lista para
  * verificar su correcto funcionamiento
