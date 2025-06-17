@@ -1,5 +1,3 @@
-package UsoEqualsCompare;
-
 /**
  * Clase Lista, implementada con arrelgo de String
  * 
