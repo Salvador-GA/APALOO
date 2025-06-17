@@ -1,3 +1,5 @@
+package ListaArreglos;
+
 /**
  * Clase Lista, implementada con arrelgo de String
  * 
@@ -106,18 +108,12 @@ public class Lista {
      */
     protected boolean insertar(String dato, int posicion) {
         if (!esLlena() && posicion >= 0 && posicion <= longitud) {
-            if (posicion == 0) {
-                return insertarInicio(dato);
-            } else if (posicion == longitud) {
-                return insertarFinal(dato);
-            } else {
-                for (int i = longitud; i > posicion; i--) {
-                    lista[i] = lista[i - 1];
-                }
-                lista[posicion] = dato;
-                longitud++;
-                return true;
+            for (int i = longitud; i > posicion; i--) {
+                lista[i] = lista[i - 1];
             }
+            lista[posicion] = dato;
+            longitud++;
+            return true;
         } else {
             return false;
         }
@@ -164,18 +160,12 @@ public class Lista {
      */
     protected boolean eliminar(int posicion) {
         if (!esVacia() && posicion >= 0 && posicion < longitud) {
-            if (posicion == 0) {
-                return eliminarInicio();
-            } else if (posicion == longitud - 1) {
-                return eliminarFinal();
-            } else {
-                for (int i = posicion; i < longitud - 1; i++) {
-                    lista[i] = lista[i + 1];
-                }
-                lista[longitud - 1] = null;
-                longitud--;
-                return true;
+            for (int i = posicion; i < longitud - 1; i++) {
+                lista[i] = lista[i + 1];
             }
+            lista[longitud - 1] = null;
+            longitud--;
+            return true;
         } else {
             return false;
         }
@@ -224,6 +214,33 @@ public class Lista {
     protected boolean reemplazar(String dato, int posicion) {
         if (!esVacia() && posicion >= 0 && posicion < longitud) {
             lista[posicion] = dato;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Devuelde la cantidad de espacios libres que tiene la lista
+     * 
+     * @return Espacios libres
+     */
+    public int espaciosLibres() {
+        return lista.length - longitud;
+    }
+
+    /**
+     * Intercambia de lugar los elementos indicados por las posiciones
+     *  
+     * @param posicion1 posicion del primer elemento
+     * @param posicion2 posicion del segundo elemento
+     * @return true si el intercambio se puede hacer, falso en caso contrario
+     */
+    public boolean intercambiar (int posicion1, int posicion2) {
+        if (posicion1 >= 0 && posicion1 < longitud && posicion2 >= 0 && posicion2 < longitud) {
+            String auxiliar = lista[posicion1];
+            lista[posicion1] = lista[posicion2];
+            lista[posicion2] = auxiliar;
             return true;
         } else {
             return false;

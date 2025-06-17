@@ -1,3 +1,5 @@
+package ListaArreglos;
+
 /**
  * Clase Principal, utiliza los metodos de una lista para
  * verificar su correcto funcionamiento
@@ -99,6 +101,15 @@ public class Principal {
             System.out.println("Reemplazo correcto");
         } else {
             System.out.println("No se pudo reemplazar");
+        }
+        System.out.println(l1.toString() + " longitud: " + l1.longitud());
+        System.out.println("----------------------------------------");
+
+        System.out.println("------ intercambiar posicion 1 por 3 -----");
+        if(l1.intercambiar(1,3)){
+            System.out.println("Intercambio correcto");
+        } else {
+            System.out.println("No se pudo intercambiar");
         }
         System.out.println(l1.toString() + " longitud: " + l1.longitud());
         System.out.println("----------------------------------------");
