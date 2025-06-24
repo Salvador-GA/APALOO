@@ -1,5 +1,3 @@
-package ListaArregloCricular;
-
 /**
  * Clase ListaCircular, implementada con arrelgo de String y aritmetica modular
  * 
