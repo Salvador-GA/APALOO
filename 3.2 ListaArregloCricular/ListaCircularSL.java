@@ -1,5 +1,3 @@
-package ListaArregloCricular;
-
 /**
  * Clase ListaCircularST, implementada con arrelgo de String y aritmetica modular
  * A diferencia de la clase ListaCircular, aqui no esta el atributo longitud, y los
