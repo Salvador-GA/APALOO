@@ -1,12 +1,14 @@
 package ListaArregloCricular;
 
 /**
- * Clase ListaCircular, implementada con arrelgo de String y aritmetica modular
+ * Clase ListaCircularST, implementada con arrelgo de String y aritmetica modular
+ * A diferencia de la clase ListaCircular, aqui no esta el atributo longitud, y los
+ * valores iniciales para inicio y fin son -1
  * 
  * @author Salvador Gonzalez Arellano
  * @version 1.1
  */
-public class ListaCircular {
+public class ListaCircularSL {
 
     /**
      * El arreglo que contiene los elementos de la lista circular.
@@ -31,35 +33,27 @@ public class ListaCircular {
     private int N;
 
     /**
-     * Cantidad de elementos en la lista circular.
-     */
-    private int longitud;
-
-    /**
      * Constructor que inicializa la lista con la cantidad maxima de datos
-     * indicada por N, además inicializa N, inicio, fin y longitud
+     * indicada por N, además inicializa N, inicio y fin
      * 
      * @param N cantidad maxima de datos en la lsita
      */
-    public ListaCircular(int N) {
+    public ListaCircularSL(int N) {
         lista = new String[N];
         this.N = N;
-        inicio = 0;
-        fin = 0;
-        longitud = 0;
+        inicio = -1;
+        fin = -1;
     }
 
     /**
      * Constructor que inicializa la lista con una cantidad maxima de 10 datos,
-     * adenmas inicializa N, inicio, fin y longitud
+     * adenmas inicializa N, inicio y fin
      */
-    public ListaCircular() {
-        // alternativamente podemos usar this(10);
+    public ListaCircularSL() {
         lista = new String[10];
         N = 10;
-        inicio = 0;
-        fin = 0;
-        longitud = 0;
+        inicio = -1;
+        fin = -1;
     }
 
     /**
@@ -68,7 +62,7 @@ public class ListaCircular {
      * @return verdadero con lista vacia, falso en otro caso
      */
     protected boolean esVacia() {
-        if (longitud == 0) {
+        if (inicio == -1) {
             return true;
         } else {
             return false;
@@ -81,7 +75,7 @@ public class ListaCircular {
      * @return verdadero con lista llena, falso en otro caso
      */
     protected boolean esLlena() {
-        if (N == longitud) {
+        if ((fin + 1) % N == inicio) {
             return true;
         } else {
             return false;
@@ -94,7 +88,11 @@ public class ListaCircular {
      * @return longitud de la lista
      */
     protected int longitud() {
-        return longitud;
+        if (!esVacia()) {
+            return ((N + fin - inicio) % N) + 1;
+        } else {
+            return 0;
+        }
     }
 
     /**
@@ -105,9 +103,12 @@ public class ListaCircular {
      */
     protected boolean insertarInicio(String dato) {
         if (!esLlena()) {
-            inicio = (inicio + N - 1) % N;
+            if (esVacia()) {
+                inicio = fin = 0;
+            } else {
+                inicio = (inicio + N - 1) % N;
+            }
             lista[inicio] = dato;
-            longitud++;
             return true;
         } else {
             return false;
@@ -122,9 +123,12 @@ public class ListaCircular {
      */
     protected boolean insertarFinal(String dato) {
         if (!esLlena()) {
+            if (esVacia()) {
+                inicio = fin = 0;
+            } else {
+                fin = (fin + 1) % N;
+            }
             lista[fin] = dato;
-            fin = (fin + 1) % N;
-            longitud++;
             return true;
         } else {
             return false;
@@ -139,17 +143,22 @@ public class ListaCircular {
      * @return verdadero si se logra insertar, falso en caso contrario
      */
     protected boolean insertar(String dato, int posicion) {
-        if (!esLlena() && posicion >= 0 && posicion <= longitud) {
-            int i = inicio;
-            while (posicion > 0) {
-                lista[(i + N - 1) % N] = lista[i];
-                posicion--;
-                i = (i + 1) % N;
+        if (!esLlena() && posicion >= 0 && posicion <= longitud()) {
+            if (posicion == 0) {
+                return insertarInicio(dato);
+            } else if (posicion == longitud()) {
+                return insertarFinal(dato);
+            } else {
+                int i = inicio;
+                while (posicion > 0) {
+                    lista[(i + N - 1) % N] = lista[i];
+                    posicion--;
+                    i = (i + 1) % N;
+                }
+                lista[(i + N - 1) % N] = dato;
+                inicio = (inicio + N - 1) % N;
+                return true;
             }
-            lista[(i + N - 1) % N] = dato;
-            inicio = (inicio + N - 1) % N;
-            longitud++;
-            return true;
         } else {
             return false;
         }
@@ -163,8 +172,11 @@ public class ListaCircular {
     protected boolean eliminarInicio() {
         if (!esVacia()) {
             lista[inicio] = null;
-            inicio = (inicio + 1) % N;
-            longitud--;
+            if (longitud() > 1) {
+                inicio = (inicio + 1) % N;
+            } else {
+                inicio = fin = -1;
+            }
             return true;
         } else {
             return false;
@@ -178,9 +190,12 @@ public class ListaCircular {
      */
     protected boolean eliminarFinal() {
         if (!esVacia()) {
-            fin = (fin + N - 1) % N;
             lista[fin] = null;
-            longitud--;
+            if (longitud() > 1) {
+                fin = (fin + N - 1) % N;
+            } else {
+                inicio = fin = -1;
+            }
             return true;
         } else {
             return false;
@@ -194,16 +209,21 @@ public class ListaCircular {
      * @return verdadero si se logra eliminar, falso en caso contrario
      */
     protected boolean eliminar(int posicion) {
-        if (!esVacia() && posicion >= 0 && posicion < longitud) {
-            int i = (inicio + posicion) % N;
-            while (i != inicio) {
-                lista[i] = lista[(i + N - 1) % N];
-                i = (i + N - 1) % N;
+        if (!esVacia() && posicion >= 0 && posicion < longitud()) {
+            if (posicion == 0) {
+                return eliminarInicio();
+            } else if (posicion == longitud() - 1) {
+                return eliminarFinal();
+            } else {
+                int i = (inicio + posicion) % N;
+                while (i != inicio) {
+                    lista[i] = lista[(i + N - 1) % N];
+                    i = (i + N - 1) % N;
+                }
+                lista[inicio] = null;
+                inicio = (inicio + 1) % N;
+                return true;
             }
-            lista[inicio] = null;
-            inicio = (inicio + 1) % N;
-            longitud--;
-            return true;
         } else {
             return false;
         }
@@ -218,14 +238,16 @@ public class ListaCircular {
     protected int buscar(String dato) {
         if (!esVacia()) {
             int tmp = inicio;
-            for (int i = 0; i < longitud; i++) {
+            for (int i = 0; i < longitud(); i++) {
                 if (lista[tmp].equals(dato)) {
                     return i;
                 }
                 tmp = (tmp + 1) % N;
             }
+            return -1;
+        } else {
+            return -1;
         }
-        return -1;
     }
 
     /**
@@ -235,7 +257,7 @@ public class ListaCircular {
      * @return el dato buscado, null si la posicion no es valida o no hay datos
      */
     protected String devolver(int posicion) {
-        if (!esVacia() && posicion >= 0 && posicion < longitud) {
+        if (!esVacia() && posicion >= 0 && posicion < longitud()) {
             return lista[(inicio + posicion) % N];
         } else {
             return null;
@@ -250,7 +272,7 @@ public class ListaCircular {
      * @return verdadero si se logra reemplazar, falso en caso contrario
      */
     protected boolean reemplazar(String dato, int posicion) {
-        if (!esVacia() && posicion >= 0 && posicion < longitud) {
+        if (!esVacia() && posicion >= 0 && posicion < longitud()) {
             lista[(inicio + posicion) % N] = dato;
             return true;
         } else {
@@ -269,7 +291,7 @@ public class ListaCircular {
                 datos += lista[tmp] + ", ";
                 tmp = (tmp + 1) % N;
             }
-            datos += lista[(fin + N -1)%N] + "]";
+            datos += lista[fin] + "]";
             return datos;
         } else {
             return "[]";
