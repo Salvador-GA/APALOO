@@ -1,5 +1,3 @@
-package UsoArchivosColaPila;
-
 /**
  * Clase nodo, almacena un dato y la referencia al siguiente nodo en la lista
  * 

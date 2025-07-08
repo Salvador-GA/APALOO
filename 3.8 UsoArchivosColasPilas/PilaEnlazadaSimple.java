@@ -1,29 +1,25 @@
-package UsoArchivosColaPila;
-
 /**
- * Clase ColaEnlazadaSimple, mantiene una cola por medio de referencias a
+ * Clase PilaEnlazadaSimple, mantiene una Pila por medio de referencias a
  * objetos tipo Nodo
  * 
  * @author Salvador Gonzalez Arellano
  * @version 1.0
  */
-public class ColaEnlazadaSimple {
-    private Nodo inicio;
-    private Nodo fin;
+public class PilaEnlazadaSimple {
+    private Nodo tope;
     private int longitud;
 
     /**
-     * Constructor de la clase, inicializa la referencia inicio y fin a null y
-     * la longitud a 0
+     * Constructor de la clase, inicializa la referencia tope a null y la longitud
+     * a 0
      */
-    public ColaEnlazadaSimple() {
-        inicio = null;
-        fin = null;
+    public PilaEnlazadaSimple() {
+        tope = null;
         longitud = 0;
     }
 
     /**
-     * Indica si la cola esta vacia
+     * Indica si la pila esta vacia
      * 
      * @return verdadero si es vacia, falso si no es vacia
      */
@@ -32,7 +28,7 @@ public class ColaEnlazadaSimple {
     }
 
     /**
-     * Devuelve la cantidad de datos en la cola
+     * Devuelve la cantidad de datos en la pila
      * 
      * @return longitud
      */
@@ -41,33 +37,24 @@ public class ColaEnlazadaSimple {
     }
 
     /**
-     * Inserta un dato al final de la cola
+     * Inserta un dato en el tope de la pila
      * 
      * @param dato a ser insertado
      */
-    public void encolar(char dato) {
-        Nodo nuevo = new Nodo(dato, null);
-        if (esVacia()) {
-            inicio = nuevo;
-        } else {
-            fin.setSiguiente(nuevo);
-        }
-        fin = nuevo;
+    public void apilar(char dato) {
+        Nodo nuevo = new Nodo(dato, tope);
+        tope = nuevo;
         longitud++;
     }
 
     /**
-     * Elimina un dato del inicio la cola
+     * Elimina un dato del tope la pila
      * 
      * @return verdadero si se pudo eliminar, falso en caso contrario
      */
-    public boolean desencolar() {
+    public boolean desapilar() {
         if (!esVacia()) {
-            if (inicio == fin) {
-                inicio = fin = null;
-            } else {
-                inicio = inicio.getSiguiente();
-            }
+            tope = tope.getSiguiente();
             longitud--;
             return true;
         } else {
@@ -76,14 +63,14 @@ public class ColaEnlazadaSimple {
     }
 
     /**
-     * Determina si un dato se encuentra en la cola
+     * Determina si un dato se encuentra en la pila
      * 
      * @param dato a ser buscado
      * @return posicion del dato si se encuentra, -1 en otro caso
      */
     public int buscar(char dato) {
         if (!esVacia()) {
-            Nodo auxRecorrer = inicio;
+            Nodo auxRecorrer = tope;
             for (int i = 0; i < longitud; i++) {
                 if (dato == auxRecorrer.getDato()) {
                     return i;
@@ -97,25 +84,25 @@ public class ColaEnlazadaSimple {
     }
 
     /**
-     * Devuelve el dato del inicio de la cola
+     * Devuelve el dato del tope de la pila
      * 
-     * @return el dato si la cola no esta vacia, null en otro caso
+     * @return el dato si la pila no esta vacia, null en otro caso
      */
     public char frente() {
         if (!esVacia()) {
-            return inicio.getDato();
+            return tope.getDato();
         } else {
             return '0';
         }
     }
 
     /**
-     * Devuelve los datos de la cola en un String
+     * Devuelve los datos de la lista en un Strins
      */
     public String toString() {
         if (!esVacia()) {
             String elementos = "[";
-            Nodo auxRecorrer = inicio;
+            Nodo auxRecorrer = tope;
             for (int i = 0; i < longitud - 1; i++) {
                 elementos += auxRecorrer.getDato() + ", ";
                 auxRecorrer = auxRecorrer.getSiguiente();
