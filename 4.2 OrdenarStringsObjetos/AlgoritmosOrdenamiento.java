@@ -4,7 +4,7 @@
  * Persona
  * 
  * @author Salvador Gonzalez Arellano
- * @version 1.0
+ * @version 1.1
  */
 public class AlgoritmosOrdenamiento {
 
@@ -57,6 +57,30 @@ public class AlgoritmosOrdenamiento {
                     arreglo[j] = arreglo[j + 1];
                     arreglo[j + 1] = aux;
                     intercambiado = true; // Se realizó al menos un intercambio
+                }
+            }
+        }
+    }
+
+    /**
+     * Algoritmo de burbuja genérico.
+     * Ordena cualquier arreglo cuyos elementos implementen Comparable.
+     *
+     * @param <T> tipo de dato que extiende Comparable
+     * @param arreglo arreglo a ordenar
+     */
+    public static <T extends Comparable<T>> void burbujaGenerico(T[] arreglo) {
+        boolean intercambiado = true;
+
+        for (int i = 0; i < arreglo.length - 1 && intercambiado; i++) {
+            intercambiado = false;
+            for (int j = 0; j < arreglo.length - 1 - i; j++) {
+                if (arreglo[j].compareTo(arreglo[j + 1]) > 0) {
+                    // Intercambiar elementos
+                    T aux = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = aux;
+                    intercambiado = true;
                 }
             }
         }
