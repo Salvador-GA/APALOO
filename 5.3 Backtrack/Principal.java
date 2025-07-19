@@ -1,12 +1,22 @@
+package Backtrack;
+
 /**
  * Clase Principal, hace uso de las clases RecorridoCAballo, Nreinas y Sudoku
  * para verificar su correcto funcionamiento
  * 
  * @author Salvador Gonzalez Arellano
- * @version 1.1
+ * @version 1.2
  */
 public class Principal {
     public static void main(String[] args) {
+        System.out.println("Cadena binaria");
+        try {
+            BacktrackCadena generador = new BacktrackCadena(3);
+            generador.generar();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
         System.out.println("Recorrido del caballo");
         try {
             RecorridoCaballo caballo = new RecorridoCaballo(0, 0, 8);
