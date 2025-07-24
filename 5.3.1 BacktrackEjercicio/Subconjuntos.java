@@ -1,5 +1,3 @@
-package BacktrackEjer;
-
 /**
  * Clase Subconjuntos, encuentra todos los posibles subconjuntos a partir de un
  * arreglo de entrada, que sumen una cantidad especificada tambien, utiliza la
