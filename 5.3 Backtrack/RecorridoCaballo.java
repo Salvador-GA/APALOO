@@ -1,9 +1,11 @@
+package Backtrack;
+
 /**
  * Clase RecorridoCaballo, resuelve el problema del recorrido del caballo para
  * un tablero de NxN a partir de la posicion indicada en el constructor
  * 
  * @author Salvador Gonzalez Arellano
- * @version 1.1
+ * @version 2.0
  */
 public class RecorridoCaballo {
     private int N;
@@ -22,6 +24,9 @@ public class RecorridoCaballo {
      * @throws Exception Coordenadas fuera de rango
      */
     public RecorridoCaballo(int x, int y, int N) throws Exception { // constructor
+        if (N <= 0) {
+            throw new Exception("El tamaño del tablero debe ser >= 1");
+        }
         this.N=N;
         tablero = new int[N][N];
         if ((x < 0) || (x >= N) || (y < 0) || (y >= N)) {
@@ -73,6 +78,7 @@ public class RecorridoCaballo {
                         tablero[nx][ny] = 0; // se borra anotación
                     }
                 } else {
+                    imprimirTablero();
                     exito = true; // tablero cubierto
                 }
             }
@@ -80,19 +86,29 @@ public class RecorridoCaballo {
     }
 
     /**
-     * imprime en pantalla los saltos del caballo
+     * @brief Imprime el tablero del recorrido del caballo con formato tipo ajedrez.
+     * Cada celda muestra el número de salto en dos dígitos, con separación visual clara.
      */
-    public void escribirTablero() {
+    public void imprimirTablero() {
+        String linea = "+";
         for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if (tablero[i][j] < 10) {
-                    System.out.print("0" + tablero[i][j] + " ");
-                } else {
-                    System.out.print(tablero[i][j] + " ");
-                }
-            }
-            System.out.println();
+            linea += "----+"; // una línea por celda
         }
+
+        for (int i = 0; i < N; i++) {
+            System.out.println(linea); // línea superior de la fila
+
+            for (int j = 0; j < N; j++) {
+                System.out.print("| ");
+                // Imprimir número de salto con formato de dos dígitos (relleno con ceros si es necesario)
+                System.out.printf("%02d", tablero[i][j]);
+                System.out.print(" ");
+            }
+            System.out.println("|"); // cierre de la fila
+        }
+
+        System.out.println(linea); // línea inferior final
     }
+
 
 }

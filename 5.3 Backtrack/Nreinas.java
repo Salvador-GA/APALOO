@@ -1,3 +1,5 @@
+package Backtrack;
+
 /**
  * Clase Nreinas, resuelve el problema de colocar N reinas sin que se ataquen en
  * un tablero de NxN
@@ -87,12 +89,7 @@ public class Nreinas {
             contadorSoluciones++;
             if (!solucionEncontrada) { // Imprime la primer solución encontrada
                 System.out.println("Solución encontrada:");
-                for (int i = 0; i < N; i++) {
-                    for (int j = 0; j < N; j++) {
-                        System.out.print(" " + tablero[i][j]);
-                    }
-                    System.out.println();
-                }
+                imprimirTablero();
                 solucionEncontrada = true;
             }
         } else {
@@ -133,4 +130,34 @@ public class Nreinas {
     public boolean getSolucionEncontrada() {
         return solucionEncontrada;
     }
+
+    /**
+     * @brief Imprime un tablero de N reinas con formato de tablero de ajedrez.
+     * 
+     * Imprime una 'R' en las celdas que contienen una reina (valor 1) y un espacio en las vacías (valor 0).
+     * Las celdas están separadas visualmente para facilitar la lectura.
+     */
+    public void imprimirTablero() {
+
+        // Construir la línea divisoria
+        String linea = "+";
+        for (int i = 0; i < N; i++) {
+            linea += "---+";
+        }
+
+        for (int i = 0; i < N; i++) {
+            System.out.println(linea); // Línea horizontal superior
+
+            for (int j = 0; j < N; j++) {
+                System.out.print("| ");
+                // Imprimir 'R' si hay reina, espacio en blanco si no
+                System.out.print(tablero[i][j] == 1 ? "R" : " ");
+                System.out.print(" ");
+            }
+            System.out.println("|"); // Cierre de fila
+        }
+
+        System.out.println(linea); // Última línea horizontal
+    }
+
 }
