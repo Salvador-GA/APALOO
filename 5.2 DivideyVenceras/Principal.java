@@ -1,3 +1,5 @@
+package DivideyVenceras;
+
 import java.util.Random;
 
 /**
@@ -13,11 +15,15 @@ public class Principal {
         int[] arreglo = new int[M];
         Random rnd = new Random();
 
-        System.out.println("Ordenamiento recursivo");
+        System.out.println();
         for (int i = 0; i < M; i++) {
             arreglo[i] = rnd.nextInt(20);
             System.out.print(" " + arreglo[i]);
         }
+        System.out.println("\nSuma del arreglo: "+FuncionesSimples.sumarArreglo(arreglo, 0, M-1));
+        System.out.println("Maximo del arreglo: "+FuncionesSimples.max(arreglo, 0, M-1));
+
+        System.out.println("\nOrdenamiento recursivo");
         OrdenamientoRecursivo.quicksort(arreglo, 0, M - 1);
         System.out.println();
         for (int i = 0; i < M; i++) {

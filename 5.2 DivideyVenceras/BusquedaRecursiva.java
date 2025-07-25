@@ -1,33 +1,35 @@
+package DivideyVenceras;
+
 /**
  * Clase BusquedaRecursiva, implementa el algoritmo de busqueda:
  * BusquedaBinaria
  * 
  * @author Salvador Gonzalez Arellano
- * @version 1.0
+ * @version 1.1
  */
 public class BusquedaRecursiva {
 
     /**
      * Algoritmo de busqueda binaria recursiva
      * 
-     * @param arreglo donde se buscara la clave
-     * @param clave   elemnto que se desea buscar
-     * @param izq     desde donde se va a buscar
-     * @param der     hasta donde se va a buscar
+     * @param arreglo   donde se buscara la clave
+     * @param clave     elemnto que se desea buscar
+     * @param inicio    desde donde se va a buscar
+     * @param fin       hasta donde se va a buscar
      * @return indice de la clave si se encuentra, -1 en otro caso
      */
-    public static int busquedaBinaria(int arreglo[], int clave, int izq, int der) {
+    public static int busquedaBinaria(int arreglo[], int clave, int inicio, int fin) {
         int medio;
-        if (izq > der) { // no encontrado
+        if (inicio > fin) { // no encontrado
             return -1;
         } else {
-            medio = (izq + der) / 2;
+            medio = (inicio + fin) / 2;
             if (arreglo[medio] == clave) {
                 return medio;
             } else if (arreglo[medio] < clave) {
-                return busquedaBinaria(arreglo, clave, medio + 1, der);
+                return busquedaBinaria(arreglo, clave, medio + 1, fin);
             } else {
-                return busquedaBinaria(arreglo, clave, izq, medio - 1);
+                return busquedaBinaria(arreglo, clave, inicio, medio - 1);
             }
         }
     }
