@@ -185,4 +185,4 @@ try {
 ---
 
 ## Este documento resume el contenido teórico del **Tema 1**.  
-Para ejemplos completos de código, consulte los archivos `.java` en esta carpeta.
+Para ejemplos completos de código, consulte las carpetas `1.1 - 1.8` del repositorio.
