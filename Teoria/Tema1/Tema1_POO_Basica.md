@@ -90,27 +90,6 @@ public class EstructuraBasica {
 - Miembros `private` no se heredan.
 - Se pueden **sobrecargar** métodos cambiando la cantidad y/o típo de los parámetros.
 
-```
-               ┌────────────┐
-               │   Figura   │
-               │+ color     │
-               │+ dibujar() │
-               └─────▲──────┘
-   ┌─────────────────┼───────────┐
-   │                 │           │
-┌───────────┐  ┌───────────┐  ┌────────────┐
-│Círculo    │  │Triángulo  │  │Rectángulo  │
-│+ radio    │  │+ base     │  │+ base      │
-│+ dibujar()│  │+ altura   │  │+ altura    │
-└───────────┘  │+ dibujar()│  │+ dibujar() │
-               └───────────┘  └──────▲─────┘
-                                     │
-                              ┌────────────┐
-                              │ Cuadrado   │
-                              │+ lado      │
-                              │+ dibujar() │
-                              └────────────┘
-```
 ```mermaid
 classDiagram
     class Figura {
