@@ -3,6 +3,8 @@
  * @brief Clase principal para ejecutar el ejemplo de Empleado y Programador.
  */
 
+package EjemploClaseDerivada;
+
 public class Principal {
 
     public static void main(String[] args) {

@@ -3,6 +3,8 @@
  * @brief Clase derivada que representa a un programador, que hereda de la clase Empleado.
  */
 
+package EjemploClaseDerivada;
+
 /**
  * Clase derivada Programador que extiende la clase Empleado, agregando la
  * especialización.
