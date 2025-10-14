@@ -31,11 +31,9 @@ classDiagram
     class Cuadrado {
         +Cuadrado()
         +Cuadrado(lado: double)
-        +setBase(base: double): void
-        +setAltura(altura: double): void
+        +setBase(base: double): void // override
+        +setAltura(altura: double): void // override
     }
-
-    note for Cuadrado "Los métodos setBase() y setAltura() sobrescriben los de Rectangulo"
 
     Figura <|-- Circulo
     Figura <|-- Rectangulo
