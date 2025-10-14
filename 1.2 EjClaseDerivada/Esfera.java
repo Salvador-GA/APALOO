@@ -1,5 +1,3 @@
-package EjClaseDerivada;
-
 /**
  * Clase que representa una Esfera a partir del radio
  * @author Salvador Gonzalez Arellano
