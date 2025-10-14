@@ -8,15 +8,15 @@ classDiagram
     }
 
     class Gato {
-        +hacerSonido(): void // override
+        
     }
 
     class Pato {
-        +hacerSonido(): void // override
+        
     }
 
     class Perro {
-        +hacerSonido(): void // override
+        
     }
 
     Animal <|-- Gato
