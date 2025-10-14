@@ -1,5 +1,3 @@
-package EjClaseDerivada;
-
 /**
  * Clase planeta, deriva de la clase Esfera
  * @author Salvador Gonzalez Arellano
