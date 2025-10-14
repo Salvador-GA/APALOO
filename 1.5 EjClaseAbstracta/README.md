@@ -2,7 +2,8 @@ En este ejemplo encontrará la forma de declarar una clase abstracta en Java, as
 
 ```mermaid
 classDiagram
-    class Figura <<abstract>> {
+    class Figura {
+        <<abstract>>
         +calcularArea(): double
         +calcularPerimetro(): double
         +toString(): String
@@ -30,11 +31,12 @@ classDiagram
     class Cuadrado {
         +Cuadrado()
         +Cuadrado(lado: double)
-        +setBase(base: double): void <<override>>
-        +setAltura(altura: double): void <<override>>
+        +setBase(base: double): void
+        +setAltura(altura: double): void
     }
 
     Figura <|-- Circulo
     Figura <|-- Rectangulo
     Rectangulo <|-- Cuadrado
+
 ```
