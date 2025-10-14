@@ -1,3 +1,5 @@
+package EjClaseDerivada;
+
 /**
  * Clase que representa una Esfera a partir del radio
  * @author Salvador Gonzalez Arellano
@@ -7,25 +9,25 @@ public class Esfera {
     private double radio;
 
     /**
-     * Constructor de la clase para inicializar el radio
-     * @param radio el valor del radio
+     * Constructor de la clase para inicializar el radio a 0
      */
-    protected Esfera(double radio) {
-        this.radio = radio;
+    public Esfera() {
+        this.radio = 0.0;
     }
 
     /**
-     * Constructor de la clase para inicializar el radio a 0
+     * Constructor de la clase para inicializar el radio
+     * @param radio el valor del radio
      */
-    protected Esfera() {
-        this.radio = 0.0;
+    public Esfera(double radio) {
+        this.radio = radio;
     }
 
     /**
      * Funcion para devolver el valor del radio
      * @return el valor del radio
      */
-    protected double getRadio() {
+    public double getRadio() {
         return radio;
     }
 
@@ -33,7 +35,7 @@ public class Esfera {
      * Funcion para asignar un valor al radio
      * @param radio valor del radio
      */
-    protected void setRadio(double radio) {
+    public void setRadio(double radio) {
         this.radio = radio;
     }
 
@@ -41,7 +43,7 @@ public class Esfera {
      * Funcion para calcular el radio de la esfera
      * @return superficie de la esfera
      */
-    protected double superficie() {
+    public double superficie() {
         return 4 * Math.PI * Math.pow(radio, 2);
     }
 

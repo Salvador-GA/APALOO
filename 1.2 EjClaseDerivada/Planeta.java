@@ -1,3 +1,5 @@
+package EjClaseDerivada;
+
 /**
  * Clase planeta, deriva de la clase Esfera
  * @author Salvador Gonzalez Arellano
@@ -7,13 +9,11 @@ public class Planeta extends Esfera {
     private int numSatelites;
 
     /**
-     * Constructor de la clase para inicializar el radio y el numero de satelites
-     * @param radio radio del planeta
-     * @param numSatelites cantidad de satelites del planeta
+     * Constructor de la clase para incializar el radio a 0 y el numero de satelites a 0
      */
-    public Planeta(double radio, int numSatelites) {
-        super(radio);
-        this.numSatelites = numSatelites;
+    public Planeta() {
+        super();
+        this.numSatelites = 0;
     }
 
     /**
@@ -26,11 +26,13 @@ public class Planeta extends Esfera {
     }
 
     /**
-     * Constructor de la clase para incializar el radio a 0 y el numero de satelites a 0
+     * Constructor de la clase para inicializar el radio y el numero de satelites
+     * @param radio radio del planeta
+     * @param numSatelites cantidad de satelites del planeta
      */
-    public Planeta() {
-        super();
-        this.numSatelites = 0;
+    public Planeta(double radio, int numSatelites) {
+        super(radio);
+        this.numSatelites = numSatelites;
     }
 
     /**
