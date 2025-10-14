@@ -4,8 +4,8 @@ En este ejemplo encontrará la forma de declarar una clase abstracta en Java, as
 classDiagram
     class Figura {
         <<abstract>>
-        +calcularArea(): double
-        +calcularPerimetro(): double
+        +calcularArea(): double // abstract
+        +calcularPerimetro(): double // abstract
         +toString(): String
     }
 
