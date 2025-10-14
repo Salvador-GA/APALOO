@@ -1,39 +1,40 @@
 En este ejemplo encontrará la forma de declarar una clase abstracta en Java, así como la forma de sobreescribir los métodos abstractos en las clases derivadas
+
 ```mermaid
 classDiagram
     class Figura <<abstract>> {
-        +calcularArea():double
-        +calcularPerimetro():double
-        +toString():String
+        +calcularArea(): double
+        +calcularPerimetro(): double
+        +toString(): String
     }
 
     class Circulo {
-        -radio:double
+        -radio: double
         +Circulo()
-        +Circulo(radio:double)
-        +getRadio():double
-        +setRadio(double radio):void
+        +Circulo(radio: double)
+        +getRadio(): double
+        +setRadio(radio: double): void
     }
 
     class Rectangulo {
-        -base:double
-        -altura:double
+        -base: double
+        -altura: double
         +Rectangulo()
-        +Rectangulo(base:double, altura:double)
-        +getBase():double
-        +setBase(double base):void
-        +getAltura():double
-        +setAltura(double altura):void
+        +Rectangulo(base: double, altura: double)
+        +getBase(): double
+        +setBase(base: double): void
+        +getAltura(): double
+        +setAltura(altura: double): void
     }
 
     class Cuadrado {
         +Cuadrado()
-        +Cuadrado(lado:double)
-        +setBase(double base):void <<Override>>
-        +setAltura(double altura):void <<Override>>
+        +Cuadrado(lado: double)
+        +setBase(base: double): void <<override>>
+        +setAltura(altura: double): void <<override>>
     }
 
-    Figura <|-- Circulo : extends
-    Figura <|-- Rectangulo : extends
-    Rectangulo <|-- Cuadrado : extends
+    Figura <|-- Circulo
+    Figura <|-- Rectangulo
+    Rectangulo <|-- Cuadrado
 ```
