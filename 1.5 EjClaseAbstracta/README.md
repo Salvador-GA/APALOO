@@ -31,8 +31,8 @@ classDiagram
     class Cuadrado {
         +Cuadrado()
         +Cuadrado(lado: double)
-        +setBase(base: double): void <<override>>
-        +setAltura(altura: double): void <<override>>
+        <<override>> +setBase(base: double): void
+        <<override>> +setAltura(altura: double): void
     }
 
     Figura <|-- Circulo
