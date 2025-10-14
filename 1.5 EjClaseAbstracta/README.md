@@ -1,7 +1,7 @@
 En este ejemplo encontrará la forma de declarar una clase abstracta en Java, así como la forma de sobreescribir los métodos abstractos en las clases derivadas
 ```mermaid
 classDiagram
-    class <<abstract>> Figura {
+    class Figura <<abstract>> {
         +calcularArea():double
         +calcularPerimetro():double
         +toString():String
