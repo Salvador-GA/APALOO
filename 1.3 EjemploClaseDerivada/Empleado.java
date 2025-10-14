@@ -1,11 +1,4 @@
 /**
- * @file Empleado.java
- * @brief Clase base que representa a un empleado en una empresa.
- */
-
-package EjemploClaseDerivada;
-
-/**
  * Clase base Empleado que contiene los atributos y métodos comunes a todos los
  * empleados.
  */
