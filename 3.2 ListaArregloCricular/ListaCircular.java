@@ -18,8 +18,9 @@ public class ListaCircular {
     private int inicio;
 
     /**
-     * Índice de fin de la lista circular. Representa la posición
-     * en la que se encuentra el último elemento.
+     * Índice de fin de la lista circular. Representa la siguiente 
+     * posición en la que se puede agregar un elemento.
+     * Es decir, fin esta una posición adelante del último elemento
      */
     private int fin;
 
